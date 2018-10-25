@@ -1,0 +1,68 @@
+
+body{
+    background-image: url("../images/star-wars.jpg");
+    background-repeat: no-repeat;
+    width: 1920;
+    height: 1200;
+    background-position: top;
+}
+
+.Jedi-Side {
+    grid-column: 3;
+    grid-row: 7;
+    z-index: 1;
+    padding-left: 30px;
+
+}
+.Sith-Side {
+    grid-column: 6;
+    grid-row: 7;
+    z-index: 1
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(10, [col] 10%);
+    grid-template-rows: repeat(10, [row] 10%);
+    width: 1920;
+    height: 1200;
+}
+
+.Title {
+    color: white;
+    grid-column: col 4 / span 4; 
+    grid-row: row 10;
+    z-index: 1;
+    align-content: center;
+    text-align: center; 
+    justify-content: end;
+    justify-items: center;
+
+}
+
+
+.card {
+    background-color: darkgray;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+}
+
+.card img {
+    width: 150px; 
+    height: 150px;
+}
+
+.label {
+    width: 100px;
+    text-align: right;
+    padding-right: 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+#deck {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
