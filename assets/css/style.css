@@ -1,64 +1,184 @@
-
-body{
+body {
     background-image: url("../images/star-wars.jpg");
     background-repeat: no-repeat;
-    width: 1920;
-    height: 1200;
-    background-position: top;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    /* height: 100vh;
+    max-width: 1920px;
+    max-height: 1200px; */
+    background-position: center;
 }
 
-.Jedi-Side {
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(10, [col] 10vw);
+    grid-template-rows: repeat(10, [row] 10vh);
+    /* width: 1920;
+    height: 1200; */
+}
+
+.jediSaber {
     grid-column: 3;
     grid-row: 7;
     z-index: 1;
     padding-left: 30px;
 
 }
-.Sith-Side {
+
+.sithSaber {
     grid-column: 6;
     grid-row: 7;
     z-index: 1
 }
 
-.wrapper {
-    display: grid;
-    grid-template-columns: repeat(10, [col] 10%);
-    grid-template-rows: repeat(10, [row] 10%);
-    width: 1920;
-    height: 1200;
-}
-
 .Title {
     color: white;
-    grid-column: col 4 / span 4; 
-    grid-row: row 10;
-    z-index: 1;
-    align-content: center;
-    text-align: center; 
-    justify-content: end;
-    justify-items: center;
 
+    /* font-size:2vw; */
+    grid-row: row 8;
+    z-index: 1;
 }
 
 
-.card {
-    background-color: darkgray;
-    width: 200px;
-    height: 200px;
-    border: 1px solid black;
+
+
+/* .character {
+    border-radius: 50%;
+    width: 20vw;
+
+overflow: hidden;
+align-content: center;
+background-color: white;
+
+
 }
 
 .card img {
-    width: 150px; 
-    height: 150px;
+width: 100%; 
+height: auto;
+background-size: cover;
+} */
+
+
+
+/* .test {
+        border-radius: 50%;
+        background-color: aqua;
+        width: 25%;
+        height: auto;
+        position: absolute;
+    }
+
+        .test img {
+            width: 100%;
+            height: auto;
+        } */
+
+
+.jediDeck {
+    /* background-color: violet; */
+    grid-column: col 1 / span 10;
+    grid-row: row 1 / span 2;
+    padding: 5% 3%;
+    z-index: 5;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
+.sithDeck {
+    grid-column: col 1 / span 10;
+    grid-row: row 9;
+    padding: 0% 3%;
+    padding-top: 50px;
+    /* background-color: beige; */
+    z-index: 5;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* flex-wrap: wrap; */
+}
+
+.character {
+    border-radius: 50%;
+    width: 20vw;
+    height: 20vw;
+    /* height: 10vw; */
+    overflow: hidden;
+    align-content: center;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.jediDeck>.character {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.character img {
+    width: 20vw;
+    height: 20vw;
+    background-size: cover;
+}
+
+.Title {
+    grid-row: row 7;
+    padding-top: 20px;
+    grid-column: col 4 / span 4;
+    text-align: center;
+    justify-content: center;
+    justify-items: baseline;
+}
+
+.Title>h2 {
+    font-size: 5vw;
+}
+
+.jediSaber {
+    grid-column: col 1 / span 3;
+    grid-row: 7;
+    padding-top: 20px;
+    /* padding-left: 35px; */
+    text-align: center;
+    justify-content: center;
+    justify-items: baseline;
+    align-content: center;
+
+}
+
+.sithSaber {
+    grid-column: col 8 / span 3;
+    grid-row: 7;
+    padding-top: 20px;
+    text-align: center;
+    justify-content: center;
+    justify-items: baseline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .label {
-    width: 100px;
-    text-align: right;
-    padding-right: 2px;
+    /* width: 100px; */
+    /* text-align: right; */
+    padding-right: 0 2px;
     font-size: 10px;
     font-weight: bold;
+}
+
+.progress {
+    margin-bottom: 1px;
 }
 
 #deck {

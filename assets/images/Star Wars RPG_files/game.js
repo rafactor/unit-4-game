@@ -11,7 +11,7 @@ fighters[6] = new card ('Darth Sidious', 'sith',90,90,50);
 fighters[7] = new card ('Count Dooku', 'sith',90,90,50);
 
 
-var avatar = false;
+
 
 
 
@@ -20,11 +20,6 @@ var avatar = false;
 */
 
 function card(name, side, hp, ap, cap) {
-    this.id = ()=>{
-        let str = this.name.toLowerCase();
-        let id = str.replace(' ','-');
-        return id
-    };
     this.name = name;
     this.side = side;
     this.healthPoints = hp;
@@ -49,30 +44,25 @@ function card(name, side, hp, ap, cap) {
 var app = {
     deck: (side)=> {
         
-        
         // (side==='jedi')? deck = $()
         let deck = $('.' + side + 'Deck');        
         // console.log(deck);
         // console.log(side)
         fighters.forEach((item, index) => {
-        if (side === item.side && avatar === false) {
+        if (side === item.side) {
+         console.log('jedi side')
+         let card = $("<div>");
+         card.addClass("character " + item.side)
 
-         let card = $("<button>");
-         let name = item.id();
-         card.addClass("character").attr({
-             "id":index,
-            "background-image": "URL("  + item.avatar(),            
-            }
-             );
          deck.append(card);
     
         //  let $name = $("<div>");
         //  $name.addClass('nameTag').text(item.name);
         //  card.append($name);
     
-        //  let $avatar = $("<img>");
-        //  $avatar.attr("src",item.avatar)
-        //  card.append($avatar);
+         let $avatar = $("<img>");
+         $avatar.attr("src",item.avatar)
+         card.append($avatar);
     
     /*
          // Health Point Progress Bar
@@ -146,35 +136,18 @@ var app = {
 $(document).ready(function() {
 
 
-// var $jediSaber = 
-// var $sithSaber = $(".sithSaber");
-// var $jediDeck = $(".jediDeck");
-// var $sithDeck = $(".sithDeck");
-// var $character = ;
-
-
-
-
-function showCharacter() {
-    console.log(this);
-}
-
+var $jediSaber = $(".jediSaber");
+var $sithSaber = $(".sithSaber");
+var $jediDeck = $(".jediDeck");
+var $sithDeck = $(".sithDeck");
 
 /* 
 ** Handlers
 */
-$(".jediSaber").on("click", ()=> {
+$jediSaber.on("click", ()=> {
     app.deck('jedi');
     app.deck('sith');
-    avatar = true;
-});
-
-$(".character").on("click", ()=> {
-    console.log('kkkk');
-});
-
-
-
+})
 });
 
 /* <div class="progress">
