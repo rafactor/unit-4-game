@@ -1,0 +1,90 @@
+.img-thumbnail{
+    max-width: 100px;
+}
+
+
+body {
+    background-image: url("../images/star-wars.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    /* height: 100vh;
+    max-width: 1920px;
+    max-height: 1200px; */
+    background-position: center;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.jediDeck {
+    background-color: antiquewhite;
+    /* max-width: 20%; */
+}
+
+
+
+.sithDeck {
+    background-color: gray;
+    /* max-width: 20%; */
+}
+
+.character {
+    border-radius: 50%;
+    max-width: 200px;
+    max-height: auto;
+  
+    /* height: 10vw; */
+    overflow: hidden;
+    align-content: center;
+    /* background-color: rgba(255, 255, 255, 0.3); */
+}
+
+.nameTag, .points{
+    text-align: center;
+}
+
+.jediDeck>.character {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.full-avatar > img {
+    height: auto;
+    width: 100%;
+    /* background-color: blueviolet; */
+}
+
+
+
+
+.points{
+    font-size: 10px;
+}
+
+.sithArena{
+    background-color: black;
+    justify-content: center;
+    color: white;
+}
+
+.jediArena {
+    justify-content: center;
+    background-color: beige;
+    color:black;
+}
+
+#label-health, #label-attack, #label-counter{
+    margin-top: 10px;
+
+}
+
+.hide{
+    display: none;
+}
+
+.select {
+    margin-top: 100px;
+}

@@ -32,15 +32,6 @@ body {
     z-index: 1
 }
 
-.Title {
-    color: white;
-
-    /* font-size:2vw; */
-    grid-row: row 8;
-    z-index: 1;
-}
-
-
 
 
 /* .character {
@@ -59,21 +50,6 @@ width: 100%;
 height: auto;
 background-size: cover;
 } */
-
-
-
-/* .test {
-        border-radius: 50%;
-        background-color: aqua;
-        width: 25%;
-        height: auto;
-        position: absolute;
-    }
-
-        .test img {
-            width: 100%;
-            height: auto;
-        } */
 
 
 .jediDeck {
@@ -110,7 +86,7 @@ background-size: cover;
     /* height: 10vw; */
     overflow: hidden;
     align-content: center;
-    background-color: rgba(255, 255, 255, 0.3);
+    /* background-color: rgba(255, 255, 255, 0.3); */
 }
 
 .jediDeck>.character {
@@ -121,20 +97,104 @@ background-size: cover;
     width: 20vw;
     height: 20vw;
     background-size: cover;
+    opacity: 0.3;
 }
 
-.Title {
-    grid-row: row 7;
-    padding-top: 20px;
+.character img:hover{
+    opacity: 1;
+}
+
+
+.character img::selection{
+    opacity: 1;
+}
+.display-avatar {
+    grid-row: row 4 / span 6;
+    grid-column: col 1 /span 10;
+    background-color:  rgba(0, 0, 0, 0.903);
+
+    display: grid;
+    grid-template-rows: repeat(10, [row] 10%);
+    grid-template-columns: repeat(10, [col] 10%);
+    position: relative;
+    top: -20px;
+}
+
+.full-avatar {
+    grid-row: row 1 / span 8;
+    grid-column: col 2 / span 8;
+    /* background-color:  rgba(0, 0, 0, 0.753); */
+    position: relative;
+}
+
+.full-avatar > img {
+    width: 100%;
+    justify-content: top;
+}
+
+.nameTag {
+    color: white;
+    grid-column: col 2 / span 8;
+    grid-row: row 3;
+    font-size: 5vw;;
+    text-align: center;
+}
+
+#health, #label-health{
+    grid-row: row 9;
+    grid-column: col 1 / span 3;
+    margin-left: 2vw;
+}
+
+#attack, #label-attack{
     grid-column: col 4 / span 4;
+    margin-left:  5vw;
+    margin-right:  5vw;
+}
+
+#counter, #label-counter{
+    grid-column: col 8 / span 3;
+    margin-right: 2vw;
+}
+
+#label-health, #label-counter,#label-attack  {
+    grid-row: row 9;
+    font-size: 0.8rem;
+    color: white;
+    /* margin: 0px; */
+    text-align: center;
+    padding: 0;
+}
+#health, #attack, #counter {
+    grid-row: row 9;
+    margin-top: 5vw;
+    padding: 0;
+}
+
+.select {
+    grid-row: row 7;
+    grid-column: col 5 / span 2;
+    text-align: center;
+    height: 50px;
+    margin-top: 30px;
+
+}
+
+
+
+.instruction {
+    grid-row: row 8;
+    padding-top: 20px;
+    grid-column: col 2 / span 8;
     text-align: center;
     justify-content: center;
     justify-items: baseline;
+    color: white;
+    z-index: 10;
+   
 }
 
-.Title>h2 {
-    font-size: 5vw;
-}
+
 
 .jediSaber {
     grid-column: col 1 / span 3;
@@ -186,3 +246,8 @@ background-size: cover;
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.hide {
+    display: none;
+}
+

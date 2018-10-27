@@ -1,14 +1,12 @@
-
-
 var fighters = new Array();
-fighters[0] = new card ('Luke Skywalker', 'jedi',100,150,50);
-fighters[1] = new card ('Obi-Wan Kenobi', 'jedi',100,120,50);
-fighters[2] = new card ('Qui-Gon Jinn', 'jedi',100,120,50);
-fighters[3] = new card ('Master Yoda', 'jedi',100,120,50);
-fighters[4] = new card ('Darth Vader', 'sith',150,100,70);
-fighters[5] = new card ('Darth Maul', 'sith',90,90,50);
-fighters[6] = new card ('Darth Sidious', 'sith',90,90,50);
-fighters[7] = new card ('Count Dooku', 'sith',90,90,50);
+fighters[0] = new card('Luke Skywalker', 'jedi', 80, 150, 50);
+fighters[1] = new card('Obi-Wan Kenobi', 'jedi', 67, 120, 45);
+fighters[2] = new card('Qui-Gon Jinn', 'jedi', 120, 120, 50);
+fighters[3] = new card('Master Yoda', 'jedi', 100, 120, 70);
+fighters[4] = new card('Darth Vader', 'sith', 150, 140, 70);
+fighters[5] = new card('Darth Maul', 'sith', 90, 50, 50);
+fighters[6] = new card('Darth Sidious', 'sith', 90, 150, 50);
+fighters[7] = new card('Count Dooku', 'sith', 90, 120, 50);
 
 
 var avatar = false;
@@ -16,13 +14,13 @@ var avatar = false;
 
 
 /*
-** Constructors 
-*/
+ ** Constructors 
+ */
 
 function card(name, side, hp, ap, cap) {
-    this.id = ()=>{
+    this.id = () => {
         let str = this.name.toLowerCase();
-        let id = str.replace(' ','-');
+        let id = str.replace(' ', '-');
         return id
     };
     this.name = name;
@@ -30,148 +28,123 @@ function card(name, side, hp, ap, cap) {
     this.healthPoints = hp;
     this.attackPower = ap;
     this.counterAttackPower = cap;
-    this.image = ()=> {
+    this.image = () => {
         let str = name.toLowerCase();
-        let image = 'assets/images/' + str.replace(' ','-') + '.png'
+        let image = 'assets/images/' + str.replace(' ', '-') + '.png'
         return image;
-    } ;
-    this.avatar = ()=> {
+    };
+    this.avatar = () => {
         let str = name.toLowerCase();
-        let image = 'assets/images/' + str.replace(' ','-') + '-avatar.png'
+        let image = 'assets/images/' + str.replace(' ', '-') + '-avatar.png'
         return image;
     }
 }
 
 /*
-** Methods 
-*/
+ ** Methods 
+ */
 
 var app = {
-    deck: (side)=> {
-        
-        
-        // (side==='jedi')? deck = $()
-        let deck = $('.' + side + 'Deck');        
-        // console.log(deck);
-        // console.log(side)
-        fighters.forEach((item, index) => {
-        if (side === item.side && avatar === false) {
-
-         let card = $("<button>");
-         let name = item.id();
-         card.addClass("character").attr({
-             "id":index,
-            "background-image": "URL("  + item.avatar(),            
-            }
-             );
-         deck.append(card);
-    
-        //  let $name = $("<div>");
-        //  $name.addClass('nameTag').text(item.name);
-        //  card.append($name);
-    
-        //  let $avatar = $("<img>");
-        //  $avatar.attr("src",item.avatar)
-        //  card.append($avatar);
-    
-    /*
-         // Health Point Progress Bar
-         let $healthPoints = $("<div>");
-         $healthPoints.addClass('healthPoints progress')
-                      .html('<div class="label">HP:</div>');
-         card.append($healthPoints);
-    
-         let $hpProgress = $("<div>");
-         $hpProgress.addClass('progress-bar progress-bar-striped bg-danger')
-                    .text(item.healthPoints.toString())
-         .attr({
-             "role":"progressbar",
-             "style":"width:"+ item.healthPoints.toString(),
-             "aria-valuenow": item.healthPoints.toString(),
-             "aria-valuemin":"0",
-             "aria-valuemax":"100",
-         });
-    
-         $healthPoints.append($hpProgress);
-         
-         
-          // Attack Point Progress Bar
-          let $attackPoints = $("<div>");
-          $attackPoints.addClass('AttackPower progress')
-                        .html('<div class="label">AP:</div>');
-          card.append($attackPoints);
-     
-          let $apProgress = $("<div>");
-          $apProgress.addClass('progress-bar progress-bar-striped')
-                     .text(item.attackPower.toString())
-          .attr({
-              "role":"progressbar",
-              "style":"width:"+ item.attackPower.toString(),
-              "aria-valuenow": item.attackPower.toString(),
-              "aria-valuemin":"0",
-              "aria-valuemax":"100",
-          });
-       
-          $attackPoints.append($apProgress);    
-    
-           // Counter Attack Point Progress Bar
-           let $counterAttackPower = $("<div>");
-           $counterAttackPower.html('<div class="label">CA:</div>')
-                              .addClass('CounterAttack progress')
-           card.append($counterAttackPower);
-      
-           let $capProgress = $("<div>");
-           $capProgress.addClass('progress-bar progress-bar-striped bg-info')
-                       .text(item.counterAttackPower.toString())
-           .attr({
-               "role":"progressbar",
-               "style":"width:"+ item.counterAttackPower.toString(),
-               "aria-valuenow": item.counterAttackPower.toString(),
-               "aria-valuemin":"0",
-               "aria-valuemax":"100",
-           });
-       
-           $counterAttackPower.append($capProgress); 
-
-           */
-
-        
-        }
-     });
+    deck: (side) => {
 
     }
 }
 
 
-$(document).ready(function() {
+$(document).ready(function () {
 
 
-// var $jediSaber = 
-// var $sithSaber = $(".sithSaber");
-// var $jediDeck = $(".jediDeck");
-// var $sithDeck = $(".sithDeck");
-// var $character = ;
+    // var $jediSaber = 
+    // var $sithSaber = $(".sithSaber");
+    // var $jediDeck = $(".jediDeck");
+    // var $sithDeck = $(".sithDeck");
+    // var $character = ;
 
 
 
 
-function showCharacter() {
-    console.log(this);
-}
+    function selectCharacter() {
+        let n = this.id;
 
 
-/* 
-** Handlers
-*/
-$(".jediSaber").on("click", ()=> {
-    app.deck('jedi');
-    app.deck('sith');
-    avatar = true;
-});
+        showCharacter(n)
+    }
 
-$(".character").on("click", ()=> {
-    console.log('kkkk');
-});
+    function showCharacter(n) {
+
+        
+        let name = fighters[n].name;
+        let image = fighters[n].image();
+        let health = fighters[n].healthPoints;
+        let attack = fighters[n].attackPower;
+        let counter = fighters[n].counterAttackPower;
+        let side = fighters[n].side;
+
+        hideCharacter(side);
+
+        if (side === 'jedi') {
+            $('#jediAvatar').html("<img src='" + image + "'>");
+            $('.jediArena > .nameTag').text(name);
+            $('#jediHealth > div').attr({
+                'aria-valuenow': health,
+                'style': 'width:' + health
+            }).text(health);
+
+            $('#jediAttack > div').attr({
+                'aria-valuenow': attack,
+                'style': 'width:' + attack
+            }).text(attack);
+            $('#jediCounter > div').attr({
+                'aria-valuenow': counter,
+                'style': 'width:' + counter
+            }).text(counter);
+
+            $('.jediPoints, #jediAvatar').removeClass('hide');
+            $('.instruction').text('')
+        } else {
+            $('#sithAvatar').html("<img src='" + image + "'>");
+            $('.sithArena > .nameTag').text(name);
+            $('#sithHealth > div').attr({
+                'aria-valuenow': health,
+                'style': 'width:' + health
+            }).text(health);
+
+            $('#sithAttack > div').attr({
+                'aria-valuenow': attack,
+                'style': 'width:' + attack
+            }).text(attack);
+            $('#sithCounter > div').attr({
+                'aria-valuenow': counter,
+                'style': 'width:' + counter
+            }).text(counter);
+
+            $('.sithPoints, #sithAvatar').removeClass('hide');
+            $('.instruction').text('')
+        }
+    }
+
+
+    function hideCharacter(side) {
+        if (side === 'jedi') {
+            $('.sithPoints, #sithAvatar').addClass('hide');
+            $('.sithArena > .nameTag').text('Choose your side');
+        } else {
+            $('.jediPoints, #jediAvatar').addClass('hide');
+            $('.jediArena > .nameTag').text('Choose your side');
+        }
+
+    }
+
+    /* 
+     ** Handlers
+     */
+    $(".display-avatar").on("click", () => {
+        console.log('click')
+        $(".display-avatar").addClass('.hide');
+
+    });
+
+    $('.character').on('click', selectCharacter);
 
 
 
