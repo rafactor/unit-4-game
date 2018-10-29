@@ -37,10 +37,17 @@ body {
     max-width: 200px;
     max-height: auto;
   
+    opacity: 0.3;
     /* height: 10vw; */
     overflow: hidden;
     align-content: center;
     /* background-color: rgba(255, 255, 255, 0.3); */
+}
+
+
+
+.display {
+    opacity: 1;
 }
 
 .nameTag, .points{
@@ -59,9 +66,9 @@ body {
 
 
 
-
 .points{
     font-size: 10px;
+justify-content: center
 }
 
 .sithArena{
@@ -82,9 +89,17 @@ body {
 }
 
 .hide{
-    display: none;
+    display: none !Important;
 }
 
-.select {
+.select, #jediBtnAttack, #sithBtnAttack {
     margin-top: 100px;
+}
+
+.jediBottom {
+    background-color: aqua;
+}
+
+.arena {
+    margin-top: 50px;
 }

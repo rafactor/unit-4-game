@@ -53,30 +53,41 @@
                             </div>
 
                             <div class="jediPoints col-4 hide">
-                                <div id="label-health">Health Points</div>
-                                <div class="progress" id="jediHealth">
-                                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%"
-                                        aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div id="label-health">Health Points</div>
+                                        <div class="progress" id="jediHealth">
+                                            <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%"
+                                                aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
 
-                                <div id="label-attack">Attack Power</div>
-                                <div class="progress" id="jediAttack">
-                                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%"
-                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                        <div id="label-attack">Attack Power</div>
+                                        <div class="progress" id="jediAttack">
+                                            <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                                                style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
 
-                                <div id="label-counter">Counter Attack Power</div>
-                                <div class="progress" id="jediCounter">
-                                    <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%"
-                                        aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div id="label-counter">Counter Attack Power</div>
+                                        <div class="progress" id="jediCounter">
+                                            <div class="progress-bar progress-bar-striped bg-info" role="progressbar"
+                                                style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <button type="button" class="btn btn-sm select">Select</button>
+                                <div class="row">
+                                    <div class="col jediDefenderArea">
+
+                                        <button type="button" class="btn btn-outline-danger select" id="jediSelect">Select</button>
+                                        <button type="button" class="btn btn-outline-danger hide" id="jediBtnAttack">Attack</button>
+                                    </div>
+                                </div>
                             </div>
-
-
 
                         </div>
                     </div>
+                </div>
+                <div class="row jediBottom">
+                        <p></p>           
                 </div>
             </div>
 
@@ -86,31 +97,41 @@
 
                     <div class="display-avatar col-md-9 col-lg-10">
                         <div class='row .container-fluid.'>
-                            
+
                             <div class="sithPoints col-4 hide">
-                                <div id="label-health">Health Points</div>
-                                <div class="progress" id="sithHealth">
-                                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%"
-                                        aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                <div class="row">
+                                    <div class="col">
 
-                                <div id="label-attack">Attack Power</div>
-                                <div class="progress" id="sithAttack">
-                                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%"
-                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                        <div id="label-health">Health Points</div>
+                                        <div class="progress" id="sithHealth">
+                                            <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%"
+                                                aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
 
-                                <div id="label-counter">Counter Attack Power</div>
-                                <div class="progress" id="sithCounter">
-                                    <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%"
-                                        aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div id="label-attack">Attack Power</div>
+                                        <div class="progress" id="sithAttack">
+                                            <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                                                style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+
+                                        <div id="label-counter">Counter Attack Power</div>
+                                        <div class="progress" id="sithCounter">
+                                            <div class="progress-bar progress-bar-striped bg-info" role="progressbar"
+                                                style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <button type="button" class="btn btn-sm select">Select</button>
+                                <div class="row">
+                                    <div class="col sithDefenderArea">
+                                        <button type="button" class="btn btn-outline-danger select" id="sithSelect">Select</button>
+                                        <button type="button" class="btn btn-outline-danger hide" id="sithBtnAttack">Attack</button>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="full-avatar col-8" id="sithAvatar">
-                                    <img>
-                                </div>
+                                <img>
+                            </div>
                         </div>
                     </div>
 
@@ -126,8 +147,12 @@
                     </div>
 
                 </div>
-            </div>
 
+                <div class="row sithBottom">
+                        <p></p>           
+                </div>
+            </div>
+           
 
 
 

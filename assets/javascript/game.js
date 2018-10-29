@@ -1,17 +1,21 @@
 var fighters = new Array();
-fighters[0] = new card('Luke Skywalker', 'jedi', 80, 150, 50);
-fighters[1] = new card('Obi-Wan Kenobi', 'jedi', 67, 120, 45);
-fighters[2] = new card('Qui-Gon Jinn', 'jedi', 120, 120, 50);
-fighters[3] = new card('Master Yoda', 'jedi', 100, 120, 70);
-fighters[4] = new card('Darth Vader', 'sith', 150, 140, 70);
-fighters[5] = new card('Darth Maul', 'sith', 90, 50, 50);
-fighters[6] = new card('Darth Sidious', 'sith', 90, 150, 50);
-fighters[7] = new card('Count Dooku', 'sith', 90, 120, 50);
+fighters[0] = new card('Luke Skywalker', 'jedi', 70, 12, 12);
+fighters[1] = new card('Obi-Wan Kenobi', 'jedi', 80, 12, 12);
+fighters[2] = new card('Qui-Gon Jinn', 'jedi', 90, 18, 12);
+fighters[3] = new card('Master Yoda', 'jedi', 100, 24, 18);
+fighters[4] = new card('Darth Vader', 'sith', 70, 18, 12);
+fighters[5] = new card('Darth Maul', 'sith', 50, 12, 6);
+fighters[6] = new card('Darth Sidious', 'sith', 90, 24, 12);
+fighters[7] = new card('Count Dooku', 'sith', 90, 24, 18);
 
 
 var avatar = false;
-
-
+var selected = false;
+var selection; //id of selected fighter
+var fighter
+var nextOpponent;
+var attackBase = 6;
+var side;
 
 /*
  ** Constructors 
@@ -52,36 +56,152 @@ var app = {
 
 
 $(document).ready(function () {
+    function chooseCharacter() {
+
+        if (selected === false) {
+        selected = true;
+        side = fighters[selection].side;
+        fighter = selection;
+
+        if (side === 'jedi') {
+            for (i = 0; i < 4; i++) {
+                if (fighter != i) {
+                    let element = $('#' + i);
+                    element.remove();
+                } else {
+                    let element = $('#' + i);
+                    element.addClass('display');
+                }
+            }
+          
+
+          
+            $('.sithBottom').html('Choose your opponent');
+            $('#jediSelect').remove();
+
+          
+
+        } else {
+            for (i = 4; i < 8; i++) {
+                if (fighter != i) {
+                    let element = $('#' + i);
+                    element.remove();
+                } else {
+                    let element = $('#' + i);
+                    element.addClass('display');
+                }
+            }
+
+            $('#sithBtnAttack').removeClass('hide');
+            $('.jediBottom').html('Choose your opponent');
+            $('#sithSelect').remove();
+        }
+
+        // let element = $('.select');
+        // $('#jediSelect').remove();
+
+       
+
+    } else {
+        nextOpponent = selection
+        
+        if (side === 'jedi') {
+            $('#jediBtnAttack').removeClass('hide');
+            $('#sithSelect').addClass('hide');
+
+            let element = $('.sithDefenderArea');
+            let avatar = $('<div>');
+            avatar.html('<img src="' + fighters[nextOpponent].avatar() + '" class="img-thumbnail rounded-circle arena display">');
+            element.append(avatar);
+
+        } else {
+            $('#sithBtnAttack').removeClass('hide');
+            $('#jediSelect').addClass('hide');
+            
+
+            let element = $('.jediDefenderArea');
+            let avatar = $('<div>');
+            avatar.html('<img src="' + fighters[nextOpponent].avatar() + '" class="img-thumbnail rounded-circle arena display">');
+            element.append(avatar);
+        }
+
+    }
+
+    $('#' + nextOpponent).remove();
+    }
 
 
-    // var $jediSaber = 
-    // var $sithSaber = $(".sithSaber");
-    // var $jediDeck = $(".jediDeck");
-    // var $sithDeck = $(".sithDeck");
-    // var $character = ;
+    function selectOpponents(side) {
+        // if (side === 'jedi') {
+        //     opponents = ['4', '5', '6', '7'];
+        // } else {
+        //     opponents = ['0', '1', '2', '3'];
+        // }
+        // random = Math.floor(Math.random() * opponents.length);
 
+        //  nextOpponent = opponents[random]
+        // showCharacter(nextOpponent);
+
+
+        // move avatar
+        // $('#' + nextOpponent).remove();
+
+      
+    }
 
 
 
     function selectCharacter() {
-        let n = this.id;
 
+        // if (selected === false) {
+            let id = this.id;
+            selection = id;
+            console.log(selection)
+            avatarHighlight(id)
 
-        showCharacter(n)
+            showCharacter(id)
+            
+        }
+    // }
+
+    function avatarHighlight(id) {
+        if (id <= 3) {
+            $('#' + id).addClass('display')
+            for (i = 0; i <= 3; i++) {
+                if (id != i) {
+                    $('#' + id).removeClass('display');
+                }
+            };
+        }
     }
 
-    function showCharacter(n) {
+    function showCharacter(id) {
 
-        
-        let name = fighters[n].name;
-        let image = fighters[n].image();
-        let health = fighters[n].healthPoints;
-        let attack = fighters[n].attackPower;
-        let counter = fighters[n].counterAttackPower;
-        let side = fighters[n].side;
 
-        hideCharacter(side);
+        let name = fighters[id].name;
+        let image = fighters[id].image();
+        let health = fighters[id].healthPoints;
+        let attack = fighters[id].attackPower;
+        let counter = fighters[id].counterAttackPower;
+        let side = fighters[id].side;
 
+        //set the opacity for the selected character
+        for (let n = 0; n < 8; n++) {
+            if (id == n) {
+                $('#' + n).addClass('display');
+            } else if (n != selection){
+                $('#' + n).removeClass('display');
+            }
+        }
+
+        // Hide the character profile for the oposite side
+        if (selected === false) {
+
+
+
+            hideCharacter(side);
+        }
+        // Display the character profile
         if (side === 'jedi') {
             $('#jediAvatar').html("<img src='" + image + "'>");
             $('.jediArena > .nameTag').text(name);
@@ -131,25 +251,70 @@ $(document).ready(function () {
         } else {
             $('.jediPoints, #jediAvatar').addClass('hide');
             $('.jediArena > .nameTag').text('Choose your side');
-        }
+        } 
+    }
 
+    function attack(){
+        
+        let side  = fighters[fighter].side 
+        fighters[nextOpponent].healthPoints -= fighters[fighter].attackPower;
+
+        fighters[fighter].attackPower += attackBase;
+        fighters[fighter].healthPoints -= fighters[nextOpponent].counterAttackPower;
+
+         // Display the character profile
+         if (side === 'jedi') {
+            var jedi = fighter;
+            var sith = nextOpponent;
+         } else {
+            var jedi = nextOpponent;
+            var sith = fighter;
+         }
+
+            $('#jediHealth > div').attr({
+                'aria-valuenow': fighters[jedi].healthPoints ,
+                'style': 'width:' + fighters[jedi].healthPoints 
+            }).text(fighters[jedi].healthPoints );
+
+            $('#jediAttack > div').attr({
+                'aria-valuenow': fighters[jedi].attackPower ,
+                'style': 'width:' + fighters[jedi].attackPower 
+            }).text(fighters[jedi].attackPower);
+
+            $('#sithHealth > div').attr({
+                'aria-valuenow': fighters[sith].healthPoints,
+                'style': 'width:' + fighters[sith].healthPoints
+            }).text(fighters[sith].healthPoints);
+
+            $('#sithAttack > div').attr({
+                'aria-valuenow': fighters[sith].attackPower,
+                'style': 'width:' + fighters[sith].attackPower
+            }).text(fighters[sith].attackPower,);
+ 
+        
+            //checkHealth
+
+            if (fighters[nextOpponent].healthPoints <=0) {
+                console.log('death');
+             
+                $('.arena').remove();
+                $('#' + side + 'BtnAttack').addClass('hide');
+
+             
+
+            }
+
+        
     }
 
     /* 
      ** Handlers
      */
-    $(".display-avatar").on("click", () => {
-        console.log('click')
-        $(".display-avatar").addClass('.hide');
-
-    });
+    $(".select").on("click", chooseCharacter);
 
     $('.character').on('click', selectCharacter);
 
-
+    $('#jediBtnAttack').on('click',attack);
+    $('#sithBtnAttack').on('click',attack);
 
 });
-
-/* <div class="progress">
-  <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-</div> */
