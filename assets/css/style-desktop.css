@@ -4,9 +4,9 @@
 
 
 body {
-    background-image: url("../images/star-wars.jpg");
+    /* background-image: url("../images/star-wars.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     width: 100vw;
     height: 100vh;
     /* height: 100vh;
@@ -21,7 +21,7 @@ body {
 }
 
 .jediDeck {
-    background-color: antiquewhite;
+    background-color: rgba(255, 255, 255, 0.7);
     /* max-width: 20%; */
 }
 
@@ -55,7 +55,7 @@ body {
 }
 
 .jediDeck>.character {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .full-avatar > img {
@@ -72,14 +72,14 @@ justify-content: center
 }
 
 .sithArena{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.7);
     justify-content: center;
     color: white;
 }
 
 .jediArena {
     justify-content: center;
-    background-color: beige;
+    background-color: rgba(255, 255, 255, 0.3);;
     color:black;
 }
 
@@ -96,9 +96,7 @@ justify-content: center
     margin-top: 100px;
 }
 
-.jediBottom {
-    background-color: aqua;
-}
+
 
 .arena {
     margin-top: 50px;
